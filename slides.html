@@ -1,75 +1,891 @@
 <!DOCTYPE html>
-
 <meta charset="utf-8">
-<title>The Title Of Your Presentation</title>
+<title>HTMLとかCSSとかAPIとか</title>
+<meta name="description=" content="HTML5や関連API, CSS3やCSS4のうち、比較的新しめなものについて紹介したスライドです。">
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26017405-1']);
+  _gaq.push(['_trackPageview']);
 
-<!-- Your Slides -->
-<!-- One section is one slide -->
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<body>
 
-<section>
-    <!-- This is the first slide -->
-    <h1>My Presentation</h1>
-    <footer>by John Doe</footer>
+<section class="cover">
+<style scoped>
+.cover .title {
+  line-height: 1.1;
+  margin-top: .3em;
+}
+.cover .by {
+  color: #666;
+  font-size: 30px;
+  margin-top: 1em;
+}
+.cover .minor {
+  font-size: 80%;
+}
+.cover .at {
+  color: #666;
+  font-size: 24px;
+  margin-top: 1em;
+}
+</style>
+<h1 class="title">HTMLとか<br>CSSとか<br>APIとか</h1>
+<p class="by">Masataka Yakura <span class="minor">(myakura)</span>
+<p class="at">HTML5 Conference 2012<br>September 8, 2012
 </section>
 
 <section>
-    <p>Some random text: But I've never been to the moon! You can see how I lived before I met you. Also Zoidberg.
-    I could if you hadn't turned on the light and shut off my stereo.</p>
+<h2>「とか」「とか」「とか」？</h2>
+<p>2011年12月：<a href="http://fumit.blogspot.jp/2011/12/24html5-html5j.html">HTML5とか勉強会 #24</a>
+<p><a href="http://www.slideshare.net/shumpei/html5api-10703643">「HTML&amp;API総まくり」</a> by 白石さん
+<p>HTML5関連のAPIを紹介したセッションが大好評。
 </section>
 
 <section>
-    <h3>An incremental list</h3>
-    <ul class="incremental">
-      <li>Item 1
-      <li>Item 2
-      <li>Item 3
-    </ul>
-    <details>Some notes. They are only visible using onstage shell.</details>
+<h2>HTML5Conf企画会議にて</h2>
+<p>「2012年版やってくださいよ！」
+<p>→ いつのまにか担当に……
+<p>→ あてがわれたのが大ホール……
 </section>
 
 <section>
-  <blockquote>
-    Who's brave enough to fly into something we all keep calling a death sphere?
-  </blockquote>
+<h2>というわけで</h2>
+<ul>
+<li>HTML関連
+<li>CSS関連
+<li>API関連
+</ul>
+<p>できる限り紹介します。
+<p>新しめのものを紹介します。
 </section>
 
 <section>
-    <h2>Part two</h2>
+<h2>なので</h2>
+<p><strong>今後いろいろ変わる可能性が高いです。</strong>
+<p>あしからず。
+<p>できるだけフォローアップします。
 </section>
 
 <section>
-    <figure> <!-- Figures are used to display images and videos fullpage -->
-      <img src="http://placekitten.com/g/800/600">
-      <figcaption>An image</figcaption>
-    </figure>
-    <details>Kittens are so cute!</details>
+<hgroup>
+<h1>HTML</h1>
+<h2>HTML5, WHATWG HTML, HTML.next</h2>
+</hgroup>
 </section>
 
 <section>
-    <figure> <!-- Videos are automatically played -->
-      <video src="http://videos-cdn.mozilla.net/brand/Mozilla_Firefox_Manifesto_v0.2_640.webm" poster="http://www.mozilla.org/images/about/poster.jpg"></video>
-      <figcaption>A video</figcaption>
-    </figure>
+<h2>HTML5：これまで</h2>
+<p>2011年5月：<a href="http://www.w3.org/TR/2012/WD-html5-20120329/">Last Call</a>に。
+<p>2012年3月：<a href="http://myakura.hatenablog.com/entry/2012/03/30/095033">最新WD公開</a>。
+<p>なおも更新は続く。
 </section>
 
 <section>
-    <h2>End!</h2>
+<h2>勧告への準備、Editorの交代</h2>
+<p>4月：<a href="http://myakura.hatenablog.com/entry/2012/04/24/093600">W3CがHTML5の勧告に向けた作業を本格化</a>。
+<p>Ian HicksonがWHATWG HTMLに専念。W3C HTML5からは離れる。
+<p>W3Cは新しいEditorの募集へ。
 </section>
 
-<!-- Your Style -->
-<!-- Define the style of your presentation -->
+<section>
+<h2>W3C vs. WHATWG?</h2>
+<p>HTML5はWHATWG HTMLから切り出されている。
+<p>スナップショットとLiving Standard。
+<p>ブランチを切った感じ。共存可能。
+</section>
 
-<!-- Maybe a font from http://www.google.com/webfonts ? -->
-<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+<section>
+<h2>新しいEditor発表</h2>
+<p>7月：<a href="http://lists.w3.org/Archives/Public/public-html/2012Jul/0183.html">HTML5のEditor Team発表</a>
+<p>8月：<a href="http://lists.w3.org/Archives/Public/public-html/2012Aug/0060.html">CanvasのEditor Team発表</a>
+<p>Microsoft, Adobe, Apple, Googleの人などが参加。
+<p>9月：<a href="http://www.w3.org/QA/2012/09/the_flowing_standard.html">もうひとり追加</a>。
+</section>
+
+<section>
+<h2>HTML5の勧告に向けて</h2>
+<p>勧告候補を公開する → 来年あたり？
+<p>実装2つ → 突き詰めると終わらない
+<p><a href="http://lists.w3.org/Archives/Public/public-html/2012Aug/0190.html">実装の条件について議論</a>。
+<p>勧告を早めたいW3C vs. 長くかかっても互換性を重視したいメンバー
+</section>
+
+<section>
+<h2>HTML.next</h2>
+<p>次のHTMLも検討すべく、HTML WGの組織改編中。
+<p>WHATWG HTMLはもちろん、他からも提案を募る。
+</section>
+
+<section>
+<h2><a href="http://whatwg.org/html#the-dialog-element"><code>&lt;dialog></code></a></h2>
+<p>様々な「ダイアログ」を定義。<br>(会話文の要素ではない)
+<p>ポップアップからオーバーレイ、モーダルダイアログまでカバー。
+</section>
+
+<section>
+<h2>Responsive Images</h2>
+<p>解像度/ピクセル密度ごとに画像を出し分ける仕組み。
+<p><a href="http://whatwg.org/html#attr-img-srcset"><code>&lt;img srcset></code></a> ― WHATWG HTMLの案
+<p><a href="http://dvcs.w3.org/hg/html-proposals/raw-file/tip/responsive-images/responsive-images.html"><code>&lt;picture></code></a> ― Community Groupの提案
+</section>
+
+<section>
+<h2><a href="http://whatwg.org/html#input-modalities:-the-inputmode-attribute"><code>&lt;input inputmode></code></a></h2>
+<p>入力モード（仮想キーボードの種類など）を指定。モバイルでは便利。
+<pre><code>&lt;label for="zip">郵便番号&lt;/label>
+&lt;input inputmode="numeric" name="zip" id="zip"></code></pre>
+<p>Firefox 17でちょっと実装（値が仕様書のと違う）。
+</section>
+
+<section>
+<h2>その他</h2>
+<p><a href="http://dvcs.w3.org/hg/web-intents/raw-file/tip/spec/Overview.html#registration-markup">Web Intents (<code>&lt;intent></code>)</a>
+<p><a href="http://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html">Web Components</a>
+<p><a>HD Canvas API</a>
+<p><a href="http://whatwg.org/html#path-objects">Canvas Path Objects</a>
+</section>
+
+<section>
+<hgroup>
+<h1>CSS</h1>
+<h2>CSS3, CSS4, FX</h2>
+</hgroup>
+</section>
+
+<section>
+<h2>CSS2からCSS3, CSS4へ</h2>
+<p>2011年：CSS 2.1, セレクタなど勧告。<br>CSS4 (セレクタ) の登場。
+<p>2012年：メディアクエリー勧告。他もいろいろ進む。
+<p>CSS3やCSS4の時代になってきた。
+<!-- <p>2012年後半：いくつか実装が安定。接頭辞が消える！ -->
+</section>
+
+<section>
+<h1>Image Values</h1>
+<p>グラデーションなどを定義したモジュール。
+</section>
+
+<section>
+<h2><a href="http://dev.w3.org/csswg/css3-images/">Image Values Level 3</a></h2>
+<p>4月：勧告候補に。
+<p>グラデーションはIE10, Firefox 16, Opera 12.50で接頭辞なし！<br>ただし……
+</section>
+
+<section>
+<h2>グラデーションと接頭辞 #1</h2>
+<p>接頭辞つき実装と互換性なし……
+<pre><code>/* これまで */
+-<var>moz</var>-linear-gradient(<mark>top</mark>, #fe0, #c00)
+/* これから */
+linear-gradient(<mark><strong>to bottom</strong></mark>, #fe0, #c00)</code></pre>
+</section>
+
+<section>
+<h2>グラデーションと接頭辞 #2</h2>
+<p>角度の解釈も変わった……
+<!-- <pre><code>/* 右向き、反時計回りに回転 */
+-<var>webkit</var>-linear-gradient(<mark>0deg</mark>, #fc0, #ff0);
+/* 上向き、時計回りに回転 */
+linear-gradient(<mark>0deg</mark>, #fc0, #ff0);
+</code></pre> -->
+<div class="example" id="grad-deg">
+<style scoped>
+#grad-deg {
+  display: table;
+  margin: auto;
+  border-spacing: 20px;
+}
+#grad-deg div {
+  width: 200px;
+  height: 180px;
+  border: 2px solid #aaa;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+#prefixed {
+  background: -webkit-linear-gradient(0deg, #fe0, #c00);
+  background: -moz-linear-gradient(0deg, #fe0, #c00);
+  background: -o-linear-gradient(0deg, #fe0, #c00);
+  background: linear-gradient(90deg, #fe0, #c00);
+}
+#standard {
+  background: -webkit-linear-gradient(90deg, #fe0, #c00);
+  background: -moz-linear-gradient(90deg, #fe0, #c00);
+  background: -o-linear-gradient(90deg, #fe0, #c00);
+  background: linear-gradient(0deg, #fe0, #c00);
+}
+</style>
+<div id="prefixed"><code>0deg</code><br>prefixed<br>→</div>
+<div id="standard"><code>0deg</code><br>standard<br>↑</div>
+</div>
+<p>SassのMixinなどを使う場合は注意。
+</section>
+
+<section>
+<h2>Level 3その他</h2>
+<p><a href="http://dev.w3.org/csswg/css3-images/#image-notation"><code>image()</code></a> ― フォールバック
+<p><a href="http://dev.w3.org/csswg/css3-images/#the-object-fit"><code>object-fit</code></a> ― アスペクト比を保って拡大縮小
+<p><a href="http://dev.w3.org/csswg/css3-images/#dppx"><code>dppx</code></a> ― デバイスピクセル比
+</section>
+
+<section>
+<h2><a href="http://dev.w3.org/csswg/css4-images/">Level 4</a>もでるよ</h2>
+<p><a href="http://dev.w3.org/csswg/css4-images/#image-set-notation"><code>image-set()</code></a> ― Responsive Images系。Chrome, Safari 6で実装
+<p><a href="http://dev.w3.org/csswg/css4-images/#element-notation"><code>element()</code></a> ― 任意の要素を画像にして参照。<code>-moz-element</code>の標準化。
+<p><a href="http://dev.w3.org/csswg/css4-images/#cross-fade-function"><code>cross-fade()</code></a> ― 複数画像をクロスフェードで合成
+</section>
+
+<section>
+<h1><a href="http://dev.w3.org/csswg/css3-flexbox/">Flexbox</a></h1>
+<p>そろそろ勧告候補に。
+</section>
+
+<section>
+<h2>Flexible Box Layout</h2>
+<p>いろんなことができる：
+<ul>
+<li>ブロックを縦/横方向に流しこむ
+<li>コンテナに収まるように幅を調整
+<li>要素の(見かけ上の)順序を変える
+</ul>
+</section>
+
+<section>
+<p><button type=button id="flextoggle">Toggle Flexbox Layout On/Off</button>
+<div class="example" id="flexbox">
+<style scoped>
+button { font-size: 30px; }
+#flexbox.enabled {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 720px;
+}
+#flexbox > div { color: #fff; padding: 1em; border-radius: 10px; margin: 10px; }
+#flexchild1 {
+  background: maroon;
+  -webkit-flex: 2; -ms-flex: 2; flex: 2;
+  -webkit-order: 1; -ms-flex-order: 1; order: 1;
+}
+#flexchild2 {
+  background: green;
+  -webkit-flex: 1; -ms-flex: 1; flex: 1;
+}
+#flexchild3 {
+  background: navy;
+  -webkit-flex: 1; -ms-flex: 1; flex: 1;
+  -webkit-order: 2; -ms-flex-order: 2; order: 2;
+}
+</style>
+<div id="flexchild1">Box 1</div>
+<div id="flexchild2">Box 2</div>
+<div id="flexchild3">Box 3</div>
+</div>
+<script>
+(function () {
+var button = document.querySelector('#flextoggle');
+var example = document.querySelector('#flexbox.example');
+button.onclick = function () {
+  example.classList.toggle('enabled')
+}
+}());
+</script>
+</section>
+
+<section>
+<h2>Flexboxこれまで</h2>
+<p>元々Mozillaの拡張。WebKitで発展。
+<p>CSS WGに持ち込まれ構文が変わる。
+<p>IE9はPPで実装するも正式版ではサポートせず。
+<p>何度もプロパティ名や値が変わる……
+</section>
+
+<section>
+<h2>Flexbox実装状況</h2>
+<p>Chrome ― <a>おおよそCRに準拠</a>
+<p>Firefox ― <a>CR版を実装中</a>
+<p>IE10 ― <a>WD版をサポート</a>
+<p>Safari ― Safari 6では無効に
+</section>
+
+<section>
+<h2>もしいま使うと…</h2>
+<pre><code>.flex-container {
+    display: -webkit-flex; /* Chrome */
+    display: -ms-flexbox; /* IE10 */
+    display: -webkit-box; /* Safari, etc. */
+    display: -moz-box; /* Firefox */
+}
+</code></pre>
+</section>
+
+<section>
+<h1><a href="http://dev.w3.org/csswg/selectors4/">Selectors Level 4</a></h1>
+<p>CSS4のセレクタ。
+</section>
+
+<section>
+<h2>夢のCSS4!</h2>
+<p>CSS3セレクタの勧告と同時に発表。
+<p>「親セレクタ」など欲しかった機能が！
+</section>
+
+<section>
+<h2><a href="http://dev.w3.org/csswg/selectors4/#subject">Subject Indicator</a></h2>
+<p>「親セレクタ」だけどさらに高機能。
+<pre><code>/* &lt;a> を子に持つ &lt;li> を選択*/
+ul > <mark><strong>!</strong>li</mark> > a {
+    color: #c00;
+}</code></pre>
+</section>
+
+<section>
+<h2><a href="http://dev.w3.org/csswg/selectors4/#matches"><code>:matches()</code></a></h2>
+<p>「このうちどれか」を選択
+<pre><code>/* articleかsectionかどっちでもいい */
+<mark><strong>:matches(<var>article</var>, <var>section</var>)</strong></mark> > h1 {
+    font-size: 220%;
+}</code></pre>
+<p>FirefoxとWebKitで先行実装。<br>→ <code>:-moz-any()</code>, <code>:-webkit-any()</code>
+</section>
+
+<section>
+<h1><a href="http://dev.w3.org/csswg/css-variables/">Cascading Variables</a></h1>
+<p>変数ライクな「カスタムプロパティ」 
+</section>
+
+<section>
+<h2>定義と呼び出し</h2>
+<pre><code>/* 色を定義 */
+:root {
+    <mark><strong>var-<var>myBlue</var></strong>: #09c;</mark>
+}
+/* つかう */
+:link {
+    color: <mark><strong>var(<var>myBlue</var>)</strong></mark>;
+}</code></pre>
+</section>
+
+<section>
+<h2>実装や仕様の今後</h2>
+<p>WebKitで実装。Chromeではflag有効で利用可能。
+<p>Firefoxも検討中。接頭辞なしで実装したい意向。
+<p>CSSOMで値をどう扱うかが検討中。
+</section>
+
+<section>
+<h2><code>$<var>foo</var></code>は？</h2>
+<p><code>$<var>foo</var></code>は他の変数ライクな機能を見据えて利用せず。
+<p>Sassの<code>@extend</code>的なものを提供する機能もアイデアとして<a>提案済</a>。
+</section>
+
+<section>
+<h1>Regions<br>Exclusions and Shapes</h1>
+<p>雑誌のようなレイアウトを実現。
+</section>
+
+<section>
+<h2><a href="http://dev.w3.org/csswg/css3-regions/">Regions</a></h2>
+<p>テキストの流れる「領域」を定義。
+<p><code>column</code>の強化版みたいな感じ。
+</section>
+
+<section>
+<figure>
+<img src="http://dev.w3.org/csswg/css3-regions/images/regions-intro-rendering.png" alt="CSS Regionsのイメージ。テキストが違う領域に流れ込んでいる。">
+</figure>
+</section>
+
+<section>
+<h2><a href="http://dev.w3.org/csswg/css3-exclusions/">Exclusions and Shapes</a></h2>
+<p>丸や矩形の中にテキストを流し込む。
+<p>もしくはある場所を「除外」してテキストを配置。
+</section>
+
+<section>
+<h2>実装状況</h2>
+<p>AdobeがCSS WGに提案し、WebKitで実装中。
+<p>Chromeでflag有効にすれば利用可能（今はRegionsのみ）。
+<p>MicrosoftもIE10でともに実装。
+</section>
+
+<section>
+<h1><a href="http://dev.w3.org/csswg/css3-grid-layout/">Grid Layout</a></h1>
+</section>
+
+<section>
+<h2>グリッドライクなレイアウト</h2>
+<p>Microsoftが提案しIE10で実装。
+<p>かつてMetroとして知られていたレイアウトではかなり便利。
+<p>もう少し仕様を練る必要がありと判断され、構文が変わりそう。
+</section>
+
+<section>
+<figure>
+<img src="http://dev.w3.org/csswg/css3-grid-layout/images/grid-concepts.png" alt="Grid Layoutの概念図。縦横にグリッドの基準線をひき、囲まれた領域内にボックスをスナップさせる。">
+</figure>
+</section>
+
+<section>
+<h1><a href="http://dev.w3.org/csswg/css3-conditional/">Conditional Rules</a></h1>
+<p>サポートの有無、特定URL下などの条件で振り分け。
+</section>
+
+<section>
+<h2><a href="http://dev.w3.org/csswg/css3-conditional/#at-supports">Feature Queries: <code>@supports</code></a></h2>
+<p>プロパティと値のサポートをチェック。
+<pre><code>@supports (display: flex) or
+    (display: -webkit-flex) or
+    (display: -ms-flexbox) {
+        /* Flexboxつかうよ */
+}
+</code></pre>
+</section>
+
+<section>
+<h2>実装状況</h2>
+<p><a>Firefox 17で実装</a>（無効になるかも)
+<p><a>Operaでも実装予定あり</a>とのこと。
+<p>拡張の多いWebKitやTridentにこそ欲しい……
+</section>
+
+<section>
+<h2><a href="http://dev.w3.org/csswg/css3-conditional/#at-document"><code>@document</code></a></h2>
+<p>特定ドメイン下においてスタイルシートを適用。
+<p>Mozilla由来 (<code>@-moz-document</code>)。
+<p>正規表現なども使えるように。
+</section>
+
+<section>
+<h1>Media Queries</h1>
+</section>
+
+<section>
+<h2><a href="http://dev.w3.org/csswg/mediaqueries4/">Media Queries Level 4</a></h2>
+<p>スクリプトやタッチデバイスの検出もできるように。
+</section>
+
+<section>
+<h2>デバイスピクセル比のクエリー</h2>
+<p><code>-webkit-device-pixel-ratio</code>が標準化されるかは怪しい。
+<p><code>resolution</code> と <code>dppx</code> で。
+<pre><code>@media (<mark><strong>min-resolution: 2dppx</strong></mark>) {
+    /* Retina */
+}</code></pre>
+</section>
+
+<section>
+<h2>CSSOM: <a href="http://dev.w3.org/csswg/cssom-view/#widl-Window-matchMedia-MediaQueryList-DOMString-query"><code>matchMedia()</code></a></h2>
+<p>メディアクエリーの状態を検出。
+<pre><code>var query = '(max-width: 800px)';
+var mql = <mark><strong>window.matchMedia(query)</strong></mark>;
+<mark>mql.addListener</mark>(function(mql){
+    if (<mark>mql.matches</mark>) { doSomething(); }
+});
+</code></pre>
+</section>
+
+<section>
+<h1>FXTF Deliverables</h1>
+<p>SVG meets CSS
+</section>
+
+<section>
+<h2>FXTF: FX Task Force</h2>
+<p>SVG WGとCSS WGの合同タスクフォース。
+<p>SVGとCSSの機能を連携させる。
+<p>Transforms, Animationsなどが再編され公開済。
+</section>
+
+<section>
+<h2><a href="https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html">CSS Filter Effects</a></h2>
+<p>SVGフィルタをCSSでも使えるように。
+<p>CSS Shadersがカスタムフィルタとして取り込まれた。
+<!-- Chrome, Safari 6 -->
+</section>
+
+<section>
+<h2><a href="https://dvcs.w3.org/hg/FXTF/raw-file/tip/masking/index.html">CSS Masking</a></h2>
+<p><code>-webkit-mask</code>やMozillaの<code>clip-path</code>を標準化。
+<p><img src="http://dvcs.w3.org/hg/FXTF/rawfile/tip/masking/images/luminance-mask.svg"></p>
+</section>
+
+<section>
+<h2><a href="https://dvcs.w3.org/hg/FXTF/raw-file/tip/compositing/index.html">Compositing and Brending</a></h2>
+<p>強化された合成やブレンドモード。
+<p><img src="https://dvcs.w3.org/hg/FXTF/rawfile/tip/compositing/examples/pd-knockout.png">
+</section>
+
+<section>
+<h1>DOM</h1>
+<h2>DOM3 Events, DOM4, WebEvents</h2>
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html">DOM4</a></h2>
+<p>元 (Web) DOM Core。
+<p>ECMAScriptとの親和性重視。
+<p>新しい機能もいくつか。
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#events">Event Constructors</a></h2>
+<p>
+<pre><code>var eventDetail = { dom: 4 };
+var ev = <mark>new CustomEvent('anevent',
+    { detail: eventDetail }
+);</mark>
+obj.dispatchEvent(ev);
+</code></pre>
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#mutation-observers">Mutation Observers</a></h2>
+<p>Mutation Eventsに変わって登場。
+<p>効率よくDOMの変化を監視。
+</section>
+
+<section>
+<h2>DOM4その他</h2>
+<p><a href="http://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#dom-rootnode-prepend"><code>Element.prepend()</code></a>, <a href="http://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#dom-rootnode-append"><code>Element.append()</code></a>, <a href="http://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#dom-rootnode-replace"><code>Element.replace()</code></a> など追加。
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/innerhtml/raw-file/tip/index.html">DOM Parsing and Serialization</a></h2>
+<p>DOMのパーズ・シリアライズ関連APIを定義。
+<p><code>innerHTML</code>, <code>insertAdjacentHTML()</code> などHTML5で定義されていたものが移管。
+</section>
+
+<section>
+<h2><a href="http://dev.w3.org/2006/webapi/DOM-Level-3-Events/html/DOM3-Events.html">DOM3 Events</a></h2>
+<p>9月6日にLast Call。
+<p>イベントによって実装状況に違いあり。
+<p>Firefox 17では<code>WheelEvent</code>が実装。
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/webevents/raw-file/v1/touchevents.html">Touch Events</a></h2>
+<p>基本的なタッチイベントを定義。 (<code>touchstart</code>, <code>touchmove</code>, etc.)
+<p>勧告候補後にAppleが特許開示。7月に<a href="http://www.w3.org/2012/te-pag/pagreport.html">「影響しない」と判断</a>。
+<p>ジェスチャーイベントなどはなし。
+</section>
+
+<section>
+<h1>Web Platform APIs</h1>
+<p>仕様いっぱい。
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/xhr/raw-file/tip/Overview.html"><code>XMLHttpRequest</code></a></h2>
+<p>XHR2が「XHR」として一本化。
+<p>クロスオリジン通信（CORS）、フォーム・バイナリ送信などが可能に。
+<p>HTML, JSON, ArrayBuffer, Blobも取得可能に。
+</section>
+
+<section>
+<h2><a href="http://dev.w3.org/2006/webapi/selectors-api2/">Selectors API Level 2</a></h2>
+<p>セレクタから要素を取得するAPI。
+<p><code>find()</code>, <code>findAll()</code>メソッドが提案中。<br>メソッドチェーンで絞り込める。
+</section>
+
+<section>
+<h2>File API</h2>
+<p><a href="http://dev.w3.org/2006/webapi/FileAPI/#blob"><code>Blob</code></a>.<code>slice()</code> のprefixが外れた (Safari以外)。
+<p><code>Blob()</code> コンストラクタのサポート。<br><code>BlobBuilder</code> がobsoleteに。
+<!-- initial support: Fx13, Cr21, IE10, Op12.50, Safari 6 -->
+<!-- ArrayBufferView support: Cr21, Fx15 -->
+<!-- slice(): Cr21, Fx13, IE10, Opera 12 -->
+<!-- bb depr Cr20 Fx14 -->
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/IndexedDB/raw-file/tip/Overview.html">Indexed Database</a></h2>
+<p>5月にLast Call。
+<p>Fx16, IE10でunprefix（なので多分だいたい実装）
+<p>WebKitの実装はまだちょっと仕様に沿ってないらしい。
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html">Fullscreen API</a></h2>
+<p>任意の要素をフルスクリーン表示。
+<div class="example" id="fullscreen">
+<style scoped>
+#fullscreen:-webkit-full-screen {
+  padding: 1em;
+  font-size: 150%;
+  border-radius: 5px;
+}
+#fullscreen:-moz-full-screen {
+  padding: 1em;
+  font-size: 150%;
+  border-radius: 5px;
+}
+#fullscreen:full-screen {
+  padding: 1em;
+  font-size: 150%;
+  border-radius: 5px;
+}
+</style>
+<pre><code>/* フルスクリーンに */
+<mark><var>elem</var>.<strong>requestFullscreen()</strong>;</mark>
+/* 解除 */
+<mark><strong>document.exitFullscreen()</strong>;</mark>
+/* スタイルシート */
+<var>elem</var><mark><strong>:fullscreen</strong></mark> { ... }</code></pre>
+</div>
+<script>
+(function () {
+var elem = document.querySelector('#fullscreen.example');
+elem.onclick = function () {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  }
+  else if (elem.mozRequestFullScreen) {
+    elem.mozRequestFullScreen();
+  }
+  else if (elem.webkitRequestFullScreen) {
+    elem.webkitRequestFullScreen();
+  }
+}
+}());
+</script>
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/pointerlock/raw-file/default/index.html">Pointer Lock</a></h2>
+<p>マウスポインタを固定する。
+<p><code>Element.requestPointerLock()</code> のほか<br><code>MouseEvent.movementX</code>, <code>movementY</code> を定義。
+<p>FPSのゲームなどによさそう。
+<!-- http://www.html5rocks.com/en/tutorials/pointerlock/intro/ -->
+<!-- http://chrome.blogspot.jp/2012/08/better-mouse-control-for-games-in.html -->
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/screen-orientation/raw-file/tip/Overview.html">Screen Orientation API</a></h2>
+<p>デバイスの向き（縦か横か）を検知。
+<br><code>portrait-primary</code>, <code>landscape-primary</code> など主にどちら向きかもわかる。
+<p><code>screen.lockOrientation()</code>でロックもできる。
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/notifications/raw-file/tip/Overview.html">Web Notifications</a></h2>
+<p>Googleが提案しChromeに実装。<br>Notification WG設立。
+<p>2012年：Appleが参加。Mountain LionのSafariで実装。
+<p>Chrome拡張APIとはデザインが違うのでご注意を。
+</section>
+
+<section>
+<h2><a href="https://dvcs.w3.org/hg/web-intents/raw-file/tip/spec/Overview-respec.html">Web Intents</a></h2>
+<p>Webアプリ版Intents。Chrome拡張で利用可能。
+<p>Webアプリ間だけでなくデバイスとの連携も視野に。
+<p>HTMLのプロトコルハンドラとの統合が検討中。
+</section>
+
+<section>
+<h1>WebPerf APIs</h1>
+<p>パフォーマンス関連仕様。
+<p>グループは<a href="http://www.w3.org/wiki/Web_Performance/Charter">Recharter</a>中。
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming/Overview.html">Navigation Timing</a></h2>
+<p>ページ読み込みに関する様々な情報を取得するAPI。
+<p>結構前から実装あり（IE9も実装）。もうほぼ勧告。
+<!-- http://www.w3.org/QA/2012/09/performance_timing_information.html -->
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming2/Overview.html">Navigation Timing 2</a></h2>
+<p><code>linkNegotiationStart</code>など追加。
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/webperf/raw-file/tip/specs/ResourceTiming/Overview.html">Resource Timing</a></h2>
+<p>画像などリソースに関する情報を取得。
+<!-- https://bugs.webkit.org/show_bug.cgi?id=61138 -->
+<pre><code>/* 画像をロード */
+img.onload = measureTiming;
+/* 取得 */
+function measureTiming () {
+    var list = 
+        <mark>performance.<strong>getEntriesByType('resource')</strong>;</mark>
+    ...
+}
+</code></pre>
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/webperf/raw-file/tip/specs/UserTiming/Overview.html">User Timing</a></h2>
+<p>ユーザーの行動に応じた情報を取得。
+<pre><code>/* マーク */
+<mark>performance.<strong>mark</strong>('<var>startTask1</var>');</mark>
+taskOne();
+<mark>performance.<strong>mark</strong>('<var>endTask1</var>');</mark>
+/* 集計 */
+var marks =
+    <mark>performance.<strong>getEntriesByType('mark')</strong>;</mark>
+...</code></pre>
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/webperf/raw-file/tip/specs/PageVisibility/Overview.html">Page Visibility</a></h2>
+<p>バックグラウンドにあるページではアニメーションを停止させたりできる。
+<p><code>document.hidden</code>, <code>visibilitychange</code> など定義。
+<p>7月に勧告候補に。
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/webperf/raw-file/tip/specs/PerformanceTimeline/Overview.html">Performance Timeline</a></h2>
+<p><code>PerformanceEntry</code>を定義。
+<p>Resource/User Timingの基盤。
+<p>Navigation Timing level 2でも採用。
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/webperf/raw-file/tip/specs/HighResolutionTime/Overview.html">High Resolution Time</a></h2>
+<p><code>window.performance.now()</code>を定義。
+<p><code>Date.now()</code>より高精度。monotonic。
+<p>パフォーマンス系APIで標準的に使われるようになる。
+<!-- http://updates.html5rocks.com/2012/08/When-milliseconds-are-not-enough-performance-now -->
+<!-- http://gent.ilcore.com/2012/06/better-timer-for-javascript.html -->
+<!-- http://www.opera.com/docs/specs/presto2.12/#m212-359 -->
+<!-- https://developer.mozilla.org/en-US/docs/Firefox_15_for_developers -->
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/webperf/raw-file/tip/specs/RequestAnimationFrame/Overview.html">Timing control for script-based animations</a></h2>
+<p><code>requestAnimationFrame()</code>のこと。
+<p>実装されている。2月にLast Call入り。
+<p>HighResTimeを使うように変更。
+</section>
+
+<section>
+<h1>メディア関連API</h1>
+</section>
+
+<section>
+<h2><a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">Web Audio API</a></h2>
+<p>ハイレベルなAPI。
+<p>Chrome, Safari 6で対応。
+<p>Firefoxも計画中。
+<!-- Cr, Safari 6, -->
+</section>
+
+<section>
+<h2><a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">Media Capture and Streams</a></h2>
+<p><code>getUserMedia()</code>を定義。
+<p>Webカメラなどからデータを取得。
+<!-- http://www.opera.com/docs/specs/presto2.10/#m210-261 -->
+<!-- http://blog.chromium.org/2012/07/introducing-getusermedia-and-javascript.html -->
+<!-- http://chrome.blogspot.jp/2012/07/new-senses-for-web.html -->
+<!-- https://hacks.mozilla.org/2012/07/getusermedia-is-ready-to-roll/ -->
+<!-- http://mozillamediagoddess.org/2012/07/13/navigator-mozgetusermedia-has-just-landed-in-firefox-desktop-nightly-builds/ -->
+</section>
+
+<!--<section>
+<h2><a href="http://dev.w3.org/2011/webrtc/editor/webrtc.html">WebRTC</a></h2>
+<p>ブラウザ間P2P通信など。
+<p>Microsoft (Skype)がべつの提案を出した。-->
+<!-- http://blogs.msdn.com/b/interoperability/archive/2012/08/06/customizable-ubiquitous-real-time-communication-over-the-web-cu-rtc-web.aspx -->
+<!-- http://html5labs.com/cu-rtc-web/cu-rtc-web.htm -->
+<!-- http://bloggeek.me/webrtc-codec-wars/ -->
+<!-- PeerConnection: Cr23 -->
+<!--</section>-->
+
+<section>
+<h1><a href="http://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html">Web Components</a></h1>
+<p>アプリのコンポーネント、ウィジェット開発に。
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html">Shadow DOM</a></h2>
+<p>隠れたDOM。Googleが提案。
+<p>WebKitで実装。Chromeでflag有効で利用可能。
+<p>デートピッカーはじめUIの実装に使われている。
+</section>
+
+<section>
+<h2><a href="http://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/custom/index.html">Custom DOM Elements</a></h2>
+<p>カスタム要素をAPIつきで定義。
+<p><code>x-<var>foo</var></code>というかたちで定義。
+<p>テンプレートやShadow DOMと組み合わせるとより強力に。
+</section>
+<!--
+<section>
+<h2><a href="http://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/templates/index.html">HTML Templates</a></h2>
+<p>テンプレートを定義。
+</section>
+-->
+<section>
+<h1>まとめ (？)</h1>
+</section>
+
+<section>
+<h2>とにかく機能がふえてます</h2>
+<p>げっそりもします…
+<p>でもわくわくもします！
+<p>気になったものは調べて共有しよう！
+</section>
+
+<section>
+<h1>Thank you.</h1>
+</section>
+
+<!-- Style -->
 
 <style>
-  html, .view body { background-color: black; counter-reset: slideidx; }
-  body, .view section { background-color: white; border-radius: 12px }
+@font-face {
+  font-family: mplus2p; 
+  src: url(fonts/mplus-2p-regular.ttf);
+}
+@font-face {
+  font-family: mplus2p;
+  src: url(fonts/mplus-2p-bold.ttf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: mplus1c;
+  src: url(fonts/mplus-1c-regular.ttf);
+}
+@font-face {
+  font-family: mplus1c;
+  src: url(fonts/mplus-1c-bold.ttf);
+  font-weight: bold;
+}
+</style>
+
+<style>
+  html, .view body {
+    background-image: url(illumi.jpg);
+    background-size: 100% auto;
+    background-color: #222;
+    counter-reset: slideidx;
+  }
+  body, .view section {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+  }
   /* A section is a slide. It's size is 800x600, and this will never change */
   section, .view head > title {
-      /* The font from Google */
-      font-family: 'Oswald', arial, serif;
-      font-size: 30px;
+    font-family: mplus2p;
+    font-size: 30px;
+  }
+
+  section {
+    padding: 50px 40px;
+  }
+
+  h1, h2, h3, strong, b {
+    font-family: mplus2p;
+    font-weight: bold;
   }
 
   .view section:after {
@@ -85,22 +901,45 @@
     margin: 1em 0 1em 0;
   }
 
-  h1, h2 {
-    margin-top: 200px;
-    text-align: center;
-    font-size: 80px;
-  }
-  h3 {
-    margin: 100px 0 50px 100px;
+  h1, h2, h3 {
+    line-height: 1.2;
   }
 
-  ul {
-      margin: 50px 200px;
+  h1 {
+    font-size: 60px;
+    margin-top: 1em;
+  }
+
+  h1 + p, hgroup + p, ul + p {
+    margin-top: .4em;
+  }
+
+  h2 {
+    font-size: 50px;
+    margin-bottom: .5em;
+  }
+
+  h3 {
+    font-size: 40px;
   }
 
   p {
-    margin: 75px;
-    font-size: 50px;
+    font-size: 40px;
+    line-height: 1.3;
+    margin-bottom: .4em;
+  }
+
+  h1 a, h2 a, h3 a {
+    text-decoration: none;
+  }
+
+  ol, ul {
+    font-size: 40px;
+    padding-left: 70px;
+  }
+
+  pre, code {
+    font-family: mplus1c;
   }
 
   blockquote {
@@ -117,32 +956,24 @@
     content: close-quote;
   }
 
+  :link, :visited {
+    color: #04c;
+  }
+
   /* Figures are displayed full-page, with the caption
      on top of the image/video */
   figure {
-    background-color: black;
     width: 100%;
     height: 100%;
-  }
-  figure > * {
-    position: absolute;
+    text-align: center;
   }
   figure > img, figure > video {
-    width: 100%; height: 100%;
+    text-align: center;
+    max-width: 100%; height: auto;
   }
   figcaption {
     margin: 70px;
     font-size: 50px;
-  }
-
-  footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 40px;
-    text-align: right;
-    background-color: #F3F4F8;
-    border-top: 1px solid #CCC;
   }
 
   /* Transition effect */
@@ -151,15 +982,11 @@
      https://developer.mozilla.org/en/CSS/CSS_transitions
      How to use CSS3 Transitions: */
   section {
-    -moz-transition: left 400ms linear 0s;
     -webkit-transition: left 400ms linear 0s;
-    -ms-transition: left 400ms linear 0s;
     transition: left 400ms linear 0s;
   }
   .view section {
-    -moz-transition: none;
     -webkit-transition: none;
-    -ms-transition: none;
     transition: none;
   }
 
@@ -211,33 +1038,41 @@
 
 <!-- Default Style -->
 <style>
-  * { margin: 0; padding: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+  * {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
   details { display: none; }
   body {
-    width: 800px; height: 600px;
-    margin-left: -400px; margin-top: -300px;
+    width: 800px;
+    height: 600px;
+    margin-left: -400px;
+    margin-top: -300px;
     position: absolute; top: 50%; left: 50%;
     overflow: hidden;
     display: none;
   }
   .view body {
     position: static;
-    margin: 0; padding: 0;
-    width: 100%; height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
     display: inline-block;
     overflow: visible; overflow-x: hidden;
     /* undo Dz.onresize */
-    transform: none !important;
-    -moz-transform: none !important;
     -webkit-transform: none !important;
-    -o-transform: none !important;
-    -ms-transform: none !important;
+    transform: none !important;
   }
   .view head, .view head > title { display: block }
   section {
     position: absolute;
     pointer-events: none;
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
   }
   .view section {
     pointer-events: auto;
@@ -246,25 +1081,20 @@
     margin: -150px -200px;
     float: left;
 
-    transform: scale(.4);
-    -moz-transform: scale(.4);
     -webkit-transform: scale(.4);
-    -o-transform: scale(.4);
-    -ms-transform: scale(.4);
+    transform: scale(.4);
   }
   .view section > * { pointer-events: none; }
   section[aria-selected] { pointer-events: auto; }
   html { overflow: hidden; }
   html.view { overflow: visible; }
   body.loaded { display: block; }
-  .incremental {visibility: hidden; }
-  .incremental[active] {visibility: visible; }
+  .incremental { visibility: hidden; }
+  .incremental[active] { visibility: visible; }
   #progress-bar{
     bottom: 0;
     position: absolute;
-    -moz-transition: width 400ms linear 0s;
     -webkit-transition: width 400ms linear 0s;
-    -ms-transition: width 400ms linear 0s;
     transition: width 400ms linear 0s;
   }
   .view #progress-bar {
@@ -398,13 +1228,10 @@
   Dz.onresize = function() {
     var db = document.body;
     var sx = db.clientWidth / window.innerWidth;
-    var sy = db.clientHeight / window.innerHeight;
+    var sy = (db.clientHeight + 30) / window.innerHeight;
     var transform = "scale(" + (1/Math.max(sx, sy)) + ")";
 
-    db.style.MozTransform = transform;
     db.style.WebkitTransform = transform;
-    db.style.OTransform = transform;
-    db.style.msTransform = transform;
     db.style.transform = transform;
   }
 
@@ -668,4 +1495,3 @@
   }
 
 </script>
-<!-- vim: set fdm=marker: }}} -->
