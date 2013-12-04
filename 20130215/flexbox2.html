@@ -1,0 +1,77 @@
+<!doctype html>
+<meta charset="UTF-8">
+<title>Flexbox</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+fieldset {
+  position: absolute;
+  margin: 1em;
+}
+label {
+  display: block;
+}
+header {
+  background-image: -webkit-linear-gradient(#eee, #ddd);
+  background-image: linear-gradient(#eee, #ddd);
+  background-color: #eee;
+  padding: 0 100px;
+}
+.logo {
+  font-size: 24px;
+  padding: 0 .5em;
+}
+.util {
+  list-style: none;
+  padding: 0;
+  /*display: -webkit-flex;*/
+  /*display: flex;*/
+}
+.util a {
+  display: inline-block;
+  padding: 0 .5em;
+}
+.flexbox {
+  display: -webkit-flex;
+  display: flex;
+}
+.leftauto {
+  margin-left: auto;
+}
+.aligncenter {
+  -webkit-align-items: center;
+  align-items: center;
+}
+</style>
+<body>
+<header>
+  <h1 class="logo">Logo</h1>
+  <ul class="util">
+    <li><a href="">About</a></li>
+    <li><a href="">Help</a></li>
+    <li><a href="">Sign up</a></li>
+  </ul>
+</header>
+<fieldset>
+  <legend>Toggle</legend>
+  <label><input name="flexbox" type="checkbox">ヘッダのdisplay: flex</label>
+  <label><input name="leftauto" type="checkbox">ユーティリティナビのmargin-left: auto</label>
+  <label><input name="aligncenter" type="checkbox">ヘッダのalign-items: center</label>
+</fieldset>
+<script>
+document.querySelector('fieldset').onchange = function (e) {
+  var name = e.target.name;
+
+  if (name === 'flexbox' || name === 'aligncenter') {
+    document.querySelector('header').classList.toggle(name);
+  }
+  else if (name === 'leftauto') {
+    document.querySelector('.util').classList.toggle(name);
+  }
+  else { console.error('something\'s going wrong.') }
+}
+</script>

@@ -1,0 +1,124 @@
+<!doctype html>
+<meta charset="UTF-8">
+<title>Flexbox</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: sans-serif;
+}
+fieldset {
+  position: absolute;
+  top: .5em;
+  right: 2em;
+}
+label {
+  display: inline-block;
+}
+footer {
+  padding: 1em 0 2em;
+  background-color: #222;
+}
+.links {
+  width: 720px;
+  margin: 0 auto;
+}
+.links h1 {
+  font-size: 1.2em;
+}
+.links ul {
+  margin: 0;
+  padding: 0;
+}
+.links li {
+  margin: .3em 0;
+}
+.links h1, .links ul {
+  color: #fff;
+}
+:link, :visited {
+  color: #0ef;
+}
+.flexbox {
+  display: -webkit-flex;
+  display: flex;
+}
+.rowreverse {
+  -webkit-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+.flex1 {
+  -webkit-flex: 1;
+  flex: 1;
+}
+</style>
+<body>
+<h1>Flexbox</h1>
+<fieldset>
+  <legend>Toggle</legend>
+  <label><input name="flexbox" type="checkbox">display: flex</label>
+  <label><input name="flex1" type="checkbox">flex: 1</label>
+  <label><input name="rowreverse" type="checkbox">flex-direction: row-reverse</label>
+</fieldset>
+<footer>
+  <section class="links">
+    <section>
+      <h1>Works</h1>
+      <ul>
+        <li><a href="">Link Item</a>
+        <li><a href="">Link Item Link Item</a>
+        <li><a href="">Link Item</a>
+        <li><a href="">Link Item</a>
+        <li><a href="">Link Item Link Item</a>
+      </ul>
+    </section>
+    <section>
+      <h1>Products</h1>
+      <ul>
+        <li><a href="">Link Item</a>
+        <li><a href="">Link Item Link Item Link</a>
+        <li><a href="">Link Item</a>
+        <li><a href="">Link Item Link Item</a>
+        <li><a href="">Link Item</a>
+        <li><a href="">Link Item</a>
+      </ul>
+    </section>
+    <section>
+      <h1>Help</h1>
+      <ul>
+        <li><a href="">Link Item</a>
+        <li><a href="">Link Item Link Item</a>
+        <li><a href="">Link Item</a>
+        <li><a href="">Link Item</a>
+      </ul>
+    </section>
+    <section>
+      <h1>Misc.</h1>
+      <ul>
+        <li><a href="">Link Item</a>
+        <li><a href="">Link Item</a>
+        <li><a href="">Link Item</a>
+      </ul>
+    </section>
+  </section>
+</footer>
+<script>
+document.querySelector('fieldset').onchange = function (e) {
+  var name = e.target.name;
+
+  var wrapper = document.querySelector('.links');
+  var items = [].slice.call(document.querySelectorAll('.links > section'));
+
+  if (name === 'flexbox' || name === 'rowreverse') {
+    wrapper.classList.toggle(name);
+  }
+  else if (name === 'flex1') {
+    items.forEach(function (v) {
+      v.classList.toggle(name);
+    });
+  }
+  else { console.error('something\'s going wrong.') }
+}
+</script>
