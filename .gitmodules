@@ -1,3 +1,6 @@
 [submodule "dzslides"]
 	path = dzslides
 	url = git://github.com/paulrouget/dzslides.git
+[submodule "revealjs"]
+	path = revealjs
+	url = https://github.com/hakimel/reveal.js/
