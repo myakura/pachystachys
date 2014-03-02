@@ -1,0 +1,22 @@
+{
+  "name": "pachystachys",
+  "version": "0.0.0",
+  "description": "Webプラットフォーム関連のスライド",
+  "main": "index.html",
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-cached": "*",
+    "gulp-changed": "*",
+    "gulp-livereload": "*",
+    "gulp-watch": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/myakura/pachystachys.git"
+  },
+  "author": "Masataka Yakura",
+  "bugs": {
+    "url": "https://github.com/myakura/pachystachys/issues"
+  },
+  "homepage": "http://myakura.github.io/pachystachys/"
+}
