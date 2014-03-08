@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>マークアップ言語としてのHTML5</title>
+<meta name="description" content="TODO: fillin">
+<!--<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26017405-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>-->
+<body>
+
+<section class="cover">
+<style scoped>
+.title {
+  line-height: 1.1;
+  margin-top: .3em;
+}
+.by {
+  color: #999;
+  font-size: 30px;
+  margin-top: 1em;
+}
+.minor {
+  font-size: 80%;
+}
+.at {
+  color: #999;
+  font-size: 24px;
+  margin-top: 1em;
+}
+.orange {
+  color: #fb0;
+}
+</style>
+<h1 class="title">マークアップ言語<br>としてのHTML5</h1>
+<p class="by">Masataka Yakura <span class="minor">(myakura)</span>
+<p class="at">8 March 2014<br>HTML5とか勉強会 in SENDAI 2014
+</section>
+
+<section>
+<h2>こんにちは</h2>
+<p>矢倉です。
+<p>いろんなとこでmyakuraです。
+<p class="ref">Blog: <a href="http://myakura.hatenablog.com/">myakura.hatenablog.com/</a><br>
+G+: <a href="https://profiles.google.com/myakura.web">profiles.google.com/myakura.web</a>
+</section>
+
+<section>
+<h2>おしながき</h2>
+<ol>
+<li>HTMLって
+<li>マークアップ
+<li>レイアウト
+<li>まとめ
+</ol>
+</section>
+
+<section>
+<h1>HTMLって</h1>
+<p>どんなものだっけ
+</section>
+
+<section>
+<h2>HyperText Markup Language</h2>
+<ul>
+<li>「<mark class="green">ハイパーテキスト</mark>」の言語<br>
+（リンクやメディアが入る）
+<li>「<mark class="red">ハイパー</mark>」だけど「<mark class="orange">テキスト</mark>」
+</ul>
+<p>→ 基本的にはテキスト。
+</section>
+
+<section>
+<h2>基本的にはテキスト…？</h2>
+<p><mark class="blue">可搬性</mark>が（まあまあ）高い。
+<ul>
+<li>古いブラウザでも読める<small>※</small>
+<li>エディタでも読める<small>※</small>
+<li>非ブラウザでも処理できる <small>※</small>
+</ul>
+<p>→（まあまあ）扱いやすい。
+</section>
+
+<section>
+<h2>情報伝達に優れている</h2>
+<ul>
+<li>可搬性が高い→<mark class="red">加工しやすい</mark>
+<li>特定のソフトに囚われにくい
+</ul>
+<p><a x-href="https://www.city.sendai.jp/kanko/d/1211796_1435.html">PDF</a>やWordに比べ、<mark class="green">伝えやすい</mark>。
+<p>伝えやすさは価値。
+</section>
+
+<section>
+  <h1>HTMLで<br>構造化する</h1>
+</section>
+
+<section>
+<h2>伝えやすさを高めるために</h2>
+<p><mark class="orange">文書の構造</mark>をちゃんと記す。
+<ul>
+<li>見出し（<code>&lt;h1></code>-<code>&lt;h6></code>）
+<li>段落（<code>&lt;p></code>）
+<li>リスト（<code>&lt;ul></code>, <code>&lt;ol></code>, <code>&lt;dl></code>）
+</ul>
+</section>
+
+<section>
+<h2>HTML5でさらに詳細に</h2>
+<ul>
+<li><mark class="orange">セクション要素</mark>の導入
+<li><mark class="green">新しいブロック要素</mark>の追加
+<li>新しいインライン要素の追加
+</ul>
+<p>今までよりも細かく表現できる。<br>加工時のフックも増える。
+</section>
+
+<section>
+<h2>セクション関連要素</h2>
+<ul>
+<li><code>&lt;<mark class="blue">section</mark>></code> ― 汎用セクション
+<li><code>&lt;<mark class="green">nav</mark>></code> ― 主要なナビゲーション
+<li><code>&lt;<mark class="orange">aside</mark>></code> ― 補足、サイドバー
+<li><code>&lt;<mark class="red">article</mark>></code> ― 独立可能なもの
+</ul>
+</section>
+
+<section>
+<h2>&lt;section></h2>
+<p>文章のなかのひとまとまり。
+<pre><code>&lt;<mark class="blue">section</mark> id="section-element">
+  &lt;h2>section要素&lt;/h2>
+  &lt;p>section要素は章や節など、文章における一般的な...
+  &lt;p>sectionはdivではありません。見た目のために...
+&lt;/<mark class="blue">section</mark>></code></pre>
+<p>※ 見た目のためなら<code>&lt;div></code>を使おう
+</section>
+
+<section>
+<h2>&lt;nav></h2>
+<p>グローバルナビとか、目次とか。
+<pre><code>&lt;<mark class="green">nav</mark> id="toc">
+  &lt;h2>目次&lt;/h2>
+  &lt;ol>
+    &lt;li>&lt;a ...>section要素&lt;/a>&lt;/li>
+    &lt;li>&lt;a ...>nav要素&lt;/a>&lt;/li>
+    &lt;li>&lt;a ...>aside要素&lt;/a>&lt;/li>
+    &lt;li>&lt;a ...>article要素&lt;/a>&lt;/li>
+  &lt;/ol>
+&lt;/<mark class="green">nav</mark>></code></pre>
+</section>
+
+<section>
+<h2>&lt;aside></h2>
+<p>本文とそんなに関係ないものに。
+<pre><code>&lt;section id="nav-element">
+  &lt;h2>nav要素&lt;/h2>
+  ...
+  &lt;<mark class="orange">aside</mark>>
+    &lt;h3>「navi」ではなく「nav」&lt;/h3>
+    ...
+  &lt;/<mark class="orange">aside</mark>>
+&lt;/section></code></pre>
+</section>
+
+<section>
+<h2>&lt;article></h2>
+<pre><code>&lt;h1>過去のエントリ：2014年3月&lt;/h1>
+&lt;<mark class="red">article</mark> class="entry" ...>
+  &lt;h1>3/8 仙台！&lt;/h1>
+  ...
+&lt;/<mark class="red">article</mark>>
+&lt;<mark class="red">article</mark> class="entry" ...>
+  &lt;h1>3/10 びーる！&lt;/h1>
+  ...
+&lt;/<mark class="red">article</mark>></code></pre>
+</section>
+
+<section>
+<h2>新しいブロック要素</h2>
+<p><code><mark class="green">main</mark></code>, <code><mark class="orange">header</mark></code>, <code><mark class="purple">footer</mark></code> などが導入。
+<pre><code>&lt;<mark class="orange">header</mark>>...&lt;/<mark class="orange">header</mark>>
+&lt;div class="container">
+  &lt;<mark class="green">main</mark>>...&lt;/<mark class="green">main</mark>>
+  &lt;<mark class="red">aside</mark> class="sidebar">...&lt;/<mark class="red">aside</mark>>
+&lt;/div>
+&lt;<mark class="purple">footer</mark>>...&lt;/<mark class="purple">footer</mark>></code></pre>
+</section>
+
+<section>
+<h2>文書のアウトライン</h2>
+<p>セクションと見出しから構成される。
+<ul>
+<li>セクションの<mark class="orange">入れ子</mark>
+<li>見出しの<mark class="green">数字</mark>から
+</ul>
+<p>※ HTML5からなくなるかも……
+</section>
+
+<section>
+<h2>アウトラインのチェック</h2>
+<ul>
+<li><a href="http://gsnedders.html5.org/outliner/">HTML5 Outliner</a>が便利かも。
+<li><a href="http://validator.w3.org/#validate_by_uri+with_options">W3CのValidator</a>でも見られる。
+</ul>
+</section>
+
+<section>
+<h2>ふつうのWebサイトとHTML5</h2>
+<ul>
+<li>header, footer, mainは使えそう
+<li>asideもサイドバーに使えそう
+<li>sectionは見出しのあるまとまりに
+<li>navはグローバルナビやら目次とか
+</ul>
+<p>その他はだいたいdivやpになりそう。
+</section>
+
+<section>
+<h1>構造 vs. 見た目</h1>
+</section>
+
+<section>
+<h2>文の構造と相容れない見た目</h2>
+<ul>
+<li>サイトの枠組み
+<li>アイキャッチ画像
+</ul>
+<p>苦しまぎれのマークアップをしていた。
+</section>
+
+<section>
+<h2>例：画像つきブロック</h2>
+<p>画像と見出し、内容があるもの。
+<p>画像→見出し→内容と書いちゃいがち。
+<p>「<mark class="blue">意味のある順序</mark>」でなくなる。
+</section>
+
+<section>
+<h2>CSS Flexbox</h2>
+<p>いろいろできるCSSレイアウト仕様。
+<p>UIを作るのに特に便利になる。
+<p>表示上の順番を入れ替えられたりも。
+<p class="ref"><a href="http://dev.w3.org/csswg/css-flexbox/">dev.w3.org/csswg/css-flexbox/</a>
+</section>
+
+<section>
+<h2>例：<a href="http://html5j.org/">html5jのWebサイト</a></h2>
+<pre><code>&lt;section>
+  &lt;a ...>
+    &lt;h4>味見部&lt;/h4>
+    &lt;img ...> <mark class="orange">&lt;!-- ソース上は画像が後 --></mark>
+  &lt;/a>
+  &lt;p>真新しい技術を実際に触ってみることを目的と...
+&lt;/section></code></pre>
+</section>
+
+<section>
+<h2><code>order</code>プロパティで入れ替え</h2>
+<pre><code>a {
+  display: flex;
+  flex-direction: column;
+}
+a img {
+  <strong><mark class="purple">order</mark>: -1;</strong> /* 見た目上&lt;h4>の上に */
+}</code></pre>
+</section>
+
+<section>
+<h2>こんなのも：CSS Grid</h2>
+<p>いろいろできすぎるレイアウト仕様。
+<p><a href="http://dev.w3.org/csswg/css-grid/#source-independence">ソースに左右されない</a>。
+<p class="ref"><a href="http://dev.w3.org/csswg/css-grid/">dev.w3.org/csswg/css-grid/</a>
+</section>
+
+<!-- <section>
+<h1>レイアウト</h1>
+</section>
+
+<section>
+<h2>Webページを見る状況</h2>
+<p>いろいろ考えられる。
+<ul>
+<li>画面/ウインドウの大きさ
+<li>デスクトップ/モバイル
+<li>屋内/屋外
+</ul>
+<p>ほかにもいっぱい。
+</section>
+
+<section>
+<h2>想定できないWeb</h2>
+<p>Webは見る媒体を指定できない。
+<ul>
+<li>モバイルかもしれない
+<li>テレビから見てるかもしれない
+</ul>
+<p>下手に想定しちゃって作って<br>
+環境を限定しているかもしれない。
+</section>
+
+<section>
+<h2>Responsive Web Design</h2>
+<p>いちおう<a href="">定義</a>があります。
+<ul>
+<li>メディアクエリー
+<li>流動的なグリッド
+<li>可変する画像
+</ul>
+<p>「エセポンシブ」もありそう……
+</section>
+
+<section>
+<h2>内容が大事</h2>
+<p>Webは固定・限定しづらい。<br>それを性質として受け入れる。
+<p>小さいものを拡張するアプローチ。
+<p>小さくする→大事なものに集中する<br>→内容でしょう。
+</section> -->
+
+<!-- <section>
+<h2>良くないケース</h2>
+<p>「PCとスマホの融合」←こわい
+<p>いろいろ無理が出てくる。
+<ul>
+<li>レイアウトの切り替わり
+<li>パフォーマンス
+</ul>
+<p>
+</section> -->
+
+<section>
+<h1>まとめ</h1>
+</section>
+
+<section>
+<h2>文書としてのHTML</h2>
+<ul>
+<li>それなりにリッチで可搬性が高い
+<li>構造化されてると応用がききやすい
+<li>ちゃんとマークアップしよう
+</ul>
+</section>
+
+<section>
+<h2>HTML5のマークアップ</h2>
+<ul>
+<li>ページ構造のための要素
+<li>文章の構造のためのセクション
+<li>セクションと見出しでアウトライン
+<li>便利なブロックもあるよ
+</ul>
+</section>
+
+<section>
+<h2>レイアウトとの競合</h2>
+<ul>
+<li>CSS3が進行中。レイアウト強化。
+<li>Flexboxで構造を崩さなくてもOK
+<li>Gridがあると自由自在！？
+</ul>
+</section>
+
+<section>
+<h1>ありがとうございます。</h1>
+</section>
+
+<!-- Style -->
+
+<style>
+@font-face {
+  font-family: mplus2p; 
+  src: local("M+ 2p regular"), url(../fonts/mplus-2p-regular.ttf);
+}
+@font-face {
+  font-family: mplus2p;
+  src: local("M+ 2p bold"), url(../fonts/mplus-2p-bold.ttf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: mplus1c;
+  src: local("M+ 1c regular"), url(../fonts/mplus-1c-regular.ttf);
+}
+@font-face {
+  font-family: mplus1c;
+  src: local("M+ 1c bold"), url(../fonts/mplus-1c-bold.ttf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: mplus1mn;
+  src: local("M+ 1mn light"), url(../fonts/mplus-1mn-light.ttf);
+}
+@font-face {
+  font-family: mplus1mn;
+  src: local("M+ 1mn regular"), url(../fonts/mplus-1mn-regular.ttf);
+  font-weight: bold;
+}
+</style>
+
+<style>
+  html, .view body {
+    background-color: #111;
+    counter-reset: slideidx;
+  }
+  body, .view section {
+    color: #fff;
+    background-color: #111;
+    border-radius: 5px;
+  }
+  /* A section is a slide. It's size is 800x600, and this will never change */
+  section, .view head > title {
+    font-family: mplus2p;
+    font-size: 30px;
+  }
+
+  section {
+    padding: 50px 40px;
+  }
+
+  h1, h2, h3, strong, b {
+    font-family: mplus2p;
+    font-weight: bold;
+  }
+
+  .view section:after {
+    counter-increment: slideidx;
+    content: counter(slideidx, decimal-leading-zero);
+    position: absolute; bottom: -80px; right: 100px;
+    color: white;
+  }
+
+  .view head > title {
+    color: white;
+    text-align: center;
+    margin: 1em 0 1em 0;
+  }
+
+  h1, h2, h3 {
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 60px;
+    margin-top: 1em;
+  }
+
+  h1 + p, hgroup + p, ul + p {
+    margin-top: .4em;
+  }
+
+  h2 {
+    font-size: 50px;
+    margin-bottom: .5em;
+  }
+
+  h3 {
+    font-size: 40px;
+  }
+
+  p {
+    font-size: 40px;
+    line-height: 1.3;
+    margin-bottom: .4em;
+  }
+  .ref {
+    font-size: 90%;
+    margin-top: 1.5em;
+  }
+
+  h1 a, h2 a, h3 a {
+    text-decoration: none;
+  }
+
+  ol, ul {
+    font-size: 40px;
+    padding-left: 70px;
+  }
+  pre {
+    margin-bottom: 1em;
+  }
+  code {
+    font-family: mplus1c;
+  }
+  
+  pre code {
+    color: #eee;
+    font-family: mplus1mn;
+  }
+  mark {
+    color: #fff;
+    background: none;
+  }
+  pre code mark {
+    font-weight: bold;
+  }
+  mark.red { color: #f66; }
+  mark.orange { color: #fd0; }
+  mark.green { color: #ae0; }
+  mark.blue { color: #0cf; }
+  mark.purple { color: #d0d; }
+
+  blockquote {
+    height: 100%;
+    background-color: black;
+    color: white;
+    font-size: 60px;
+    padding: 50px;
+  }
+  blockquote:before {
+    content: open-quote;
+  }
+  blockquote:after {
+    content: close-quote;
+  }
+
+  :link, :visited {
+    color: #6af;
+  }
+
+  /* Figures are displayed full-page, with the caption
+     on top of the image/video */
+  figure {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+  figure > img, figure > video {
+    text-align: center;
+    max-width: 100%; height: auto;
+  }
+  figcaption {
+    margin: 70px;
+    font-size: 50px;
+  }
+
+  /* Transition effect */
+  /* Feel free to change the transition effect for original
+     animations. See here:
+     https://developer.mozilla.org/en/CSS/CSS_transitions
+     How to use CSS3 Transitions: */
+  section {
+    transition: left 300ms linear 0s;
+  }
+  .view section {
+    transition: none;
+  }
+
+  .view section[aria-selected] {
+    border: 5px red solid;
+  }
+
+  /* Before */
+  section { left: -150%; }
+  /* Now */
+  section[aria-selected] { left: 0; }
+  /* After */
+  section[aria-selected] ~ section { left: +150%; }
+
+  /* Incremental elements */
+
+  /* By default, visible */
+  .incremental > * { opacity: 1; }
+
+  /* The current item */
+  .incremental > *[aria-selected] { opacity: 1; }
+
+  /* The items to-be-selected */
+  .incremental > *[aria-selected] ~ * { opacity: 0; }
+
+  /* The progressbar, at the bottom of the slides, show the global
+     progress of the presentation. */
+  #progress-bar {
+    height: 2px;
+    background: #AAA;
+  }
+</style>
+
+<!-- {{{{ dzslides core
+#
+#
+#     __  __  __       .  __   ___  __
+#    |  \  / /__` |    | |  \ |__  /__`
+#    |__/ /_ .__/ |___ | |__/ |___ .__/ core :€
+#
+#
+# The following block of code is not supposed to be edited.
+# But if you want to change the behavior of these slides,
+# feel free to hack it!
+#
+-->
+
+<div id="progress-bar"></div>
+
+<!-- Default Style -->
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  details { display: none; }
+  body {
+    width: 800px;
+    height: 600px;
+    margin-left: -400px;
+    margin-top: -300px;
+    position: absolute; top: 50%; left: 50%;
+    overflow: hidden;
+    display: none;
+  }
+  .view body {
+    position: static;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    overflow: visible; overflow-x: hidden;
+    /* undo Dz.onresize */
+    -webkit-transform: none !important;
+    transform: none !important;
+  }
+  .view head, .view head > title { display: block }
+  section {
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+  }
+  .view section {
+    pointer-events: auto;
+    position: static;
+    width: 800px; height: 600px;
+    margin: -150px -200px;
+    float: left;
+
+    -webkit-transform: scale(.4);
+    transform: scale(.4);
+  }
+  .view section > * { pointer-events: none; }
+  section[aria-selected] { pointer-events: auto; }
+  html { overflow: hidden; }
+  html.view { overflow: visible; }
+  body.loaded { display: block; }
+  .incremental { visibility: hidden; }
+  .incremental[active] { visibility: visible; }
+  #progress-bar{
+    bottom: 0;
+    position: absolute;
+    transition: width 400ms linear 0s;
+  }
+  .view #progress-bar {
+    display: none;
+  }
+</style>
+
+<script>
+  var Dz = {
+    remoteWindows: [],
+    idx: -1,
+    step: 0,
+    html: null,
+    slides: null,
+    progressBar : null,
+    params: {
+      autoplay: "1"
+    }
+  };
+
+  Dz.init = function() {
+    document.body.className = "loaded";
+    this.slides = Array.prototype.slice.call($$("body > section"));
+    this.progressBar = $("#progress-bar");
+    this.html = document.body.parentNode;
+    this.setupParams();
+    this.onhashchange();
+    this.setupTouchEvents();
+    this.onresize();
+    this.setupView();
+  }
+
+  Dz.setupParams = function() {
+    var p = window.location.search.substr(1).split('&');
+    p.forEach(function(e, i, a) {
+      var keyVal = e.split('=');
+      Dz.params[keyVal[0]] = decodeURIComponent(keyVal[1]);
+    });
+  // Specific params handling
+    if (!+this.params.autoplay)
+      $$.forEach($$("video"), function(v){ v.controls = true });
+  }
+
+  Dz.onkeydown = function(aEvent) {
+    // Don't intercept keyboard shortcuts
+    if (aEvent.altKey
+      || aEvent.ctrlKey
+      || aEvent.metaKey
+      || aEvent.shiftKey) {
+      return;
+    }
+    if ( aEvent.keyCode == 37 // left arrow
+      || aEvent.keyCode == 38 // up arrow
+      || aEvent.keyCode == 33 // page up
+    ) {
+      aEvent.preventDefault();
+      this.back();
+    }
+    if ( aEvent.keyCode == 39 // right arrow
+      || aEvent.keyCode == 40 // down arrow
+      || aEvent.keyCode == 34 // page down
+    ) {
+      aEvent.preventDefault();
+      this.forward();
+    }
+    if (aEvent.keyCode == 35) { // end
+      aEvent.preventDefault();
+      this.goEnd();
+    }
+    if (aEvent.keyCode == 36) { // home
+      aEvent.preventDefault();
+      this.goStart();
+    }
+    if (aEvent.keyCode == 32) { // space
+      aEvent.preventDefault();
+      this.toggleContent();
+    }
+    if (aEvent.keyCode == 70) { // f
+      aEvent.preventDefault();
+      this.goFullscreen();
+    }
+    if (aEvent.keyCode == 79) { // o
+      aEvent.preventDefault();
+      this.toggleView();
+    }
+  }
+
+  /* Touch Events */
+
+  Dz.setupTouchEvents = function() {
+    var orgX, newX;
+    var tracking = false;
+
+    var db = document.body;
+    db.addEventListener("touchstart", start.bind(this), false);
+    db.addEventListener("touchmove", move.bind(this), false);
+
+    function start(aEvent) {
+      aEvent.preventDefault();
+      tracking = true;
+      orgX = aEvent.changedTouches[0].pageX;
+    }
+
+    function move(aEvent) {
+      if (!tracking) return;
+      newX = aEvent.changedTouches[0].pageX;
+      if (orgX - newX > 100) {
+        tracking = false;
+        this.forward();
+      } else {
+        if (orgX - newX < -100) {
+          tracking = false;
+          this.back();
+        }
+      }
+    }
+  }
+
+  Dz.setupView = function() {
+    document.body.addEventListener("click", function ( e ) {
+      if (!Dz.html.classList.contains("view")) return;
+      if (!e.target || e.target.nodeName != "SECTION") return;
+
+      Dz.html.classList.remove("view");
+      Dz.setCursor(Dz.slides.indexOf(e.target) + 1);
+    }, false);
+  }
+
+  /* Adapt the size of the slides to the window */
+
+  Dz.onresize = function() {
+    var db = document.body;
+    var sx = db.clientWidth / window.innerWidth;
+    var sy = db.clientHeight / window.innerHeight;
+    var transform = "scale(" + (1/Math.max(sx, sy)) + ")";
+
+    db.style.WebkitTransform = transform;
+    db.style.transform = transform;
+  }
+
+
+  Dz.getNotes = function(aIdx) {
+    var s = $("section:nth-of-type(" + aIdx + ")");
+    var d = s.$("[role='note']");
+    return d ? d.innerHTML : "";
+  }
+
+  Dz.onmessage = function(aEvent) {
+    var argv = aEvent.data.split(" "), argc = argv.length;
+    argv.forEach(function(e, i, a) { a[i] = decodeURIComponent(e) });
+    var win = aEvent.source;
+    if (argv[0] === "REGISTER" && argc === 1) {
+      this.remoteWindows.push(win);
+      this.postMsg(win, "REGISTERED", document.title, this.slides.length);
+      this.postMsg(win, "CURSOR", this.idx + "." + this.step);
+      return;
+    }
+    if (argv[0] === "BACK" && argc === 1)
+      this.back();
+    if (argv[0] === "FORWARD" && argc === 1)
+      this.forward();
+    if (argv[0] === "START" && argc === 1)
+      this.goStart();
+    if (argv[0] === "END" && argc === 1)
+      this.goEnd();
+    if (argv[0] === "TOGGLE_CONTENT" && argc === 1)
+      this.toggleContent();
+    if (argv[0] === "SET_CURSOR" && argc === 2)
+      window.location.hash = "#" + argv[1];
+    if (argv[0] === "GET_CURSOR" && argc === 1)
+      this.postMsg(win, "CURSOR", this.idx + "." + this.step);
+    if (argv[0] === "GET_NOTES" && argc === 1)
+      this.postMsg(win, "NOTES", this.getNotes(this.idx));
+  }
+
+  Dz.toggleContent = function() {
+    // If a Video is present in this new slide, play it.
+    // If a Video is present in the previous slide, stop it.
+    var s = $("section[aria-selected]");
+    if (s) {
+      var video = s.$("video");
+      if (video) {
+        if (video.ended || video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      }
+    }
+  }
+
+  Dz.setCursor = function(aIdx, aStep) {
+    // If the user change the slide number in the URL bar, jump
+    // to this slide.
+    aStep = (aStep != 0 && typeof aStep !== "undefined") ? "." + aStep : ".0";
+    window.location.hash = "#" + aIdx + aStep;
+  }
+
+  Dz.onhashchange = function() {
+    var cursor = window.location.hash.split("#"),
+        newidx = 1,
+        newstep = 0;
+    if (cursor.length == 2) {
+      newidx = ~~cursor[1].split(".")[0];
+      newstep = ~~cursor[1].split(".")[1];
+      if (newstep > Dz.slides[newidx - 1].$$('.incremental > *').length) {
+        newstep = 0;
+        newidx++;
+      }
+    }
+    this.setProgress(newidx, newstep);
+    if (newidx != this.idx) {
+      this.setSlide(newidx);
+    }
+    if (newstep != this.step) {
+      this.setIncremental(newstep);
+    }
+    for (var i = 0; i < this.remoteWindows.length; i++) {
+      this.postMsg(this.remoteWindows[i], "CURSOR", this.idx + "." + this.step);
+    }
+  }
+
+  Dz.back = function() {
+    if (this.idx == 1 && this.step == 0) {
+      return;
+    }
+    if (this.step == 0) {
+      this.setCursor(this.idx - 1,
+                     this.slides[this.idx - 2].$$('.incremental > *').length);
+    } else {
+      this.setCursor(this.idx, this.step - 1);
+    }
+  }
+
+  Dz.forward = function() {
+    if (this.idx >= this.slides.length &&
+        this.step >= this.slides[this.idx - 1].$$('.incremental > *').length) {
+        return;
+    }
+    if (this.step >= this.slides[this.idx - 1].$$('.incremental > *').length) {
+      this.setCursor(this.idx + 1, 0);
+    } else {
+      this.setCursor(this.idx, this.step + 1);
+    }
+  }
+
+  Dz.goStart = function() {
+    this.setCursor(1, 0);
+  }
+
+  Dz.goEnd = function() {
+    var lastIdx = this.slides.length;
+    var lastStep = this.slides[lastIdx - 1].$$('.incremental > *').length;
+    this.setCursor(lastIdx, lastStep);
+  }
+
+  Dz.toggleView = function() {
+    this.html.classList.toggle("view");
+
+    if (this.html.classList.contains("view")) {
+      $("section[aria-selected]").scrollIntoView(true);
+    }
+  }
+
+  Dz.setSlide = function(aIdx) {
+    this.idx = aIdx;
+    var old = $("section[aria-selected]");
+    var next = $("section:nth-of-type("+ this.idx +")");
+    if (old) {
+      old.removeAttribute("aria-selected");
+      var video = old.$("video");
+      if (video) {
+        video.pause();
+      }
+    }
+    if (next) {
+      next.setAttribute("aria-selected", "true");
+      if (this.html.classList.contains("view")) {
+        next.scrollIntoView();
+      }
+      var video = next.$("video");
+      if (video && !!+this.params.autoplay) {
+        video.play();
+      }
+    } else {
+      // That should not happen
+      this.idx = -1;
+      // console.warn("Slide doesn't exist.");
+    }
+  }
+
+  Dz.setIncremental = function(aStep) {
+    this.step = aStep;
+    var old = this.slides[this.idx - 1].$('.incremental > *[aria-selected]');
+    if (old) {
+      old.removeAttribute('aria-selected');
+    }
+    var incrementals = $$('.incremental');
+    if (this.step <= 0) {
+      $$.forEach(incrementals, function(aNode) {
+        aNode.removeAttribute('active');
+      });
+      return;
+    }
+    var next = this.slides[this.idx - 1].$$('.incremental > *')[this.step - 1];
+    if (next) {
+      next.setAttribute('aria-selected', true);
+      next.parentNode.setAttribute('active', true);
+      var found = false;
+      $$.forEach(incrementals, function(aNode) {
+        if (aNode != next.parentNode)
+          if (found)
+            aNode.removeAttribute('active');
+          else
+            aNode.setAttribute('active', true);
+        else
+          found = true;
+      });
+    } else {
+      setCursor(this.idx, 0);
+    }
+    return next;
+  }
+
+  Dz.goFullscreen = function() {
+    var html = $('html'),
+        requestFullscreen = html.requestFullscreen || html.requestFullScreen || html.mozRequestFullScreen || html.webkitRequestFullScreen;
+    if (requestFullscreen) {
+      requestFullscreen.apply(html);
+    }
+  }
+  
+  Dz.setProgress = function(aIdx, aStep) {
+    var slide = $("section:nth-of-type("+ aIdx +")");
+    if (!slide)
+      return;
+    var steps = slide.$$('.incremental > *').length + 1,
+        slideSize = 100 / (this.slides.length - 1),
+        stepSize = slideSize / steps;
+    this.progressBar.style.width = ((aIdx - 1) * slideSize + aStep * stepSize) + '%';
+  }
+  
+  Dz.postMsg = function(aWin, aMsg) { // [arg0, [arg1...]]
+    aMsg = [aMsg];
+    for (var i = 2; i < arguments.length; i++)
+      aMsg.push(encodeURIComponent(arguments[i]));
+    aWin.postMessage(aMsg.join(" "), "*");
+  }
+  
+  function init() {
+    Dz.init();
+    window.onkeydown = Dz.onkeydown.bind(Dz);
+    window.onresize = Dz.onresize.bind(Dz);
+    window.onhashchange = Dz.onhashchange.bind(Dz);
+    window.onmessage = Dz.onmessage.bind(Dz);
+  }
+
+  window.onload = init;
+</script>
+
+
+<script> // Helpers
+  if (!Function.prototype.bind) {
+    Function.prototype.bind = function (oThis) {
+
+      // closest thing possible to the ECMAScript 5 internal IsCallable
+      // function 
+      if (typeof this !== "function")
+      throw new TypeError(
+        "Function.prototype.bind - what is trying to be fBound is not callable"
+      );
+
+      var aArgs = Array.prototype.slice.call(arguments, 1),
+          fToBind = this,
+          fNOP = function () {},
+          fBound = function () {
+            return fToBind.apply( this instanceof fNOP ? this : oThis || window,
+                   aArgs.concat(Array.prototype.slice.call(arguments)));
+          };
+
+      fNOP.prototype = this.prototype;
+      fBound.prototype = new fNOP();
+
+      return fBound;
+    };
+  }
+
+  var $ = (HTMLElement.prototype.$ = function(aQuery) {
+    return this.querySelector(aQuery);
+  }).bind(document);
+
+  var $$ = (HTMLElement.prototype.$$ = function(aQuery) {
+    return this.querySelectorAll(aQuery);
+  }).bind(document);
+
+  $$.forEach = function(nodeList, fun) {
+    Array.prototype.forEach.call(nodeList, fun);
+  }
+
+</script>

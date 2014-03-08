@@ -1,12 +1,10 @@
 {
   "name": "pachystachys",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Webプラットフォーム関連のスライド",
   "main": "index.html",
   "devDependencies": {
     "gulp": "*",
-    "gulp-cached": "*",
-    "gulp-changed": "*",
     "gulp-livereload": "*",
     "gulp-watch": "*"
   },
