@@ -55,8 +55,9 @@ G+: <a href="https://profiles.google.com/myakura.web">profiles.google.com/myakur
 <h2>おしながき</h2>
 <ol>
 <li>HTMLって
-<li>マークアップ
-<li>レイアウト
+<li>マークアップと構造化
+<li>レイアウト vs. 構造
+<li>これからの構造化
 <li>まとめ
 </ol>
 </section>
@@ -98,7 +99,7 @@ G+: <a href="https://profiles.google.com/myakura.web">profiles.google.com/myakur
 </section>
 
 <section>
-  <h1>HTMLで<br>構造化する</h1>
+<h1>HTMLで<br>構造化する</h1>
 </section>
 
 <section>
@@ -114,7 +115,7 @@ G+: <a href="https://profiles.google.com/myakura.web">profiles.google.com/myakur
 <section>
 <h2>HTML5でさらに詳細に</h2>
 <ul>
-<li><mark class="orange">セクション要素</mark>の導入
+<li><mark class="orange">セクション関連要素</mark>の導入
 <li><mark class="green">新しいブロック要素</mark>の追加
 <li>新しいインライン要素の追加
 </ul>
@@ -184,7 +185,7 @@ G+: <a href="https://profiles.google.com/myakura.web">profiles.google.com/myakur
 
 <section>
 <h2>新しいブロック要素</h2>
-<p><code><mark class="green">main</mark></code>, <code><mark class="orange">header</mark></code>, <code><mark class="purple">footer</mark></code> などが導入。
+<p><code>&lt;<mark class="green">main</mark>></code>, <code>&lt;<mark class="orange">header</mark>></code>, <code>&lt;<mark class="purple">footer</mark>></code> など。
 <pre><code>&lt;<mark class="orange">header</mark>>...&lt;/<mark class="orange">header</mark>>
 &lt;div class="container">
   &lt;<mark class="green">main</mark>>...&lt;/<mark class="green">main</mark>>
@@ -214,10 +215,11 @@ G+: <a href="https://profiles.google.com/myakura.web">profiles.google.com/myakur
 <section>
 <h2>ふつうのWebサイトとHTML5</h2>
 <ul>
-<li>header, footer, mainは使えそう
-<li>asideもサイドバーに使えそう
-<li>sectionは見出しのあるまとまりに
-<li>navはグローバルナビやら目次とか
+<li><code>&lt;header></code>, <code>&lt;footer></code> は使いたい
+<li><code>&lt;main></code>も使えるでしょう
+<li><code>&lt;aside></code>もサイドバーに使えそう
+<li><code>&lt;section></code>は見出しのある箇所に
+<li><code>&lt;nav></code>はグローバルナビやら目次に
 </ul>
 <p>その他はだいたいdivやpになりそう。
 </section>
@@ -232,18 +234,18 @@ G+: <a href="https://profiles.google.com/myakura.web">profiles.google.com/myakur
 <li>サイトの枠組み
 <li>アイキャッチ画像
 </ul>
-<p>苦しまぎれのマークアップをしていた。
+<p><mark class="purple">苦しまぎれ</mark>のマークアップをしていた。
 </section>
 
 <section>
 <h2>例：画像つきブロック</h2>
 <p>画像と見出し、内容があるもの。
 <p>画像→見出し→内容と書いちゃいがち。
-<p>「<mark class="blue">意味のある順序</mark>」でなくなる。
+<p>「<a href="http://waic.jp/docs/UNDERSTANDING-WCAG20/content-structure-separation-sequence.html"><mark class="blue">意味のある順序</mark></a>」に影響する。
 </section>
 
 <section>
-<h2>CSS Flexbox</h2>
+<h2>CSS <mark class="green">Flexbox</mark></h2>
 <p>いろいろできるCSSレイアウト仕様。
 <p>UIを作るのに特に便利になる。
 <p>表示上の順番を入れ替えられたりも。
@@ -273,66 +275,43 @@ a img {
 </section>
 
 <section>
-<h2>こんなのも：CSS Grid</h2>
+<h2>こんなのも：CSS <mark class="red">Grid</mark></h2>
 <p>いろいろできすぎるレイアウト仕様。
 <p><a href="http://dev.w3.org/csswg/css-grid/#source-independence">ソースに左右されない</a>。
 <p class="ref"><a href="http://dev.w3.org/csswg/css-grid/">dev.w3.org/csswg/css-grid/</a>
 </section>
 
-<!-- <section>
-<h1>レイアウト</h1>
+<section>
+<h1>この先はどうなる</h1>
 </section>
 
 <section>
-<h2>Webページを見る状況</h2>
-<p>いろいろ考えられる。
-<ul>
-<li>画面/ウインドウの大きさ
-<li>デスクトップ/モバイル
-<li>屋内/屋外
-</ul>
-<p>ほかにもいっぱい。
+<h2><a href="www.w3.org/html/wg/drafts/html/master/">HTML 5.1</a></h2>
+<p>漸進的な拡張が進行中。
+<p>HTML5に間に合わないものが入る。
+<p>マークアップ周りの追加はそんなない。
 </section>
 
 <section>
-<h2>想定できないWeb</h2>
-<p>Webは見る媒体を指定できない。
-<ul>
-<li>モバイルかもしれない
-<li>テレビから見てるかもしれない
-</ul>
-<p>下手に想定しちゃって作って<br>
-環境を限定しているかもしれない。
+<h2>専用の要素がないものは…？</h2>
+<p><a href="http://www.w3.org/html/wg/drafts/html/master/common-idioms.html#common-idioms">仕様書にヒント</a>がある。
+<p>→ 変なのもある（パンくずとか）
+<p style="margin-top: 2em; font-size: 90%">【PR】<a href="http://www.slideshare.net/bathtimefish/ss-24598819">MarkupCafe</a>ってのがあります
 </section>
 
 <section>
-<h2>Responsive Web Design</h2>
-<p>いちおう<a href="">定義</a>があります。
-<ul>
-<li>メディアクエリー
-<li>流動的なグリッド
-<li>可変する画像
-</ul>
-<p>「エセポンシブ」もありそう……
+<h2><a href="http://w3c.github.io/webcomponents/explainer/">Web Components</a></h2>
+<p>UIコンポーネントを定義できる。<br>
+（<mark class="orange">Custom Elements</mark>, etc.）
+<p>配布して広められる。<br>
+（<mark class="blue">HTML Imports</mark>）
 </section>
 
 <section>
-<h2>内容が大事</h2>
-<p>Webは固定・限定しづらい。<br>それを性質として受け入れる。
-<p>小さいものを拡張するアプローチ。
-<p>小さくする→大事なものに集中する<br>→内容でしょう。
-</section> -->
-
-<!-- <section>
-<h2>良くないケース</h2>
-<p>「PCとスマホの融合」←こわい
-<p>いろいろ無理が出てくる。
-<ul>
-<li>レイアウトの切り替わり
-<li>パフォーマンス
-</ul>
-<p>
-</section> -->
+<h2><mark class="green">ミクロ</mark>な標準化</h2>
+<p>これまでの標準化：<br>標準化団体に言ってなんとかする。<br>→ かなりの労力……
+<p>これからの標準化：<br>コンポーネントを作って流行らす。<br>→ ちょっと楽に…！？
+</section>
 
 <section>
 <h1>まとめ</h1>
@@ -358,16 +337,23 @@ a img {
 </section>
 
 <section>
-<h2>レイアウトとの競合</h2>
+<h2>構造をキープできる新CSS</h2>
 <ul>
-<li>CSS3が進行中。レイアウト強化。
 <li>Flexboxで構造を崩さなくてもOK
 <li>Gridがあると自由自在！？
 </ul>
 </section>
 
 <section>
-<h1>ありがとうございます。</h1>
+<h2>Web Components</h2>
+<ul>
+<li>要素を定義する仕組みが導入
+<li>実際に使うぼくらがWebを育てる
+</ul>
+</section>
+
+<section>
+<h1>ありがとうございます</h1>
 </section>
 
 <!-- Style -->
