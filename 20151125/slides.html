@@ -1,0 +1,156 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>最近のCSSまわりとか</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+li::before {
+  content: "・ "
+}
+
+/* スライドのUIまわり */
+.wrap {
+  scroll-snap-type: mandatory;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+}
+/* スライド */
+.cover, section {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  padding: 0 5vw 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-coordinate: 0 0;
+}
+
+/* スライドのスタイル */
+.cover, section {
+  font-size: 8vh;
+  font-family: Roboto, Source Han Sans;
+}
+h1 {
+  font-size: 10vh;
+  font-weight: 400;
+  margin: 0;
+}
+.meta {
+  font-weight: 300;
+  font-size: 5vh;
+  margin-top: .5em;
+}
+section {
+}
+h2 {
+  font-size: 9vh;
+  font-weight: 400;
+  margin: 0;
+}
+</style>
+<body>
+
+<div class="wrap">
+
+<div class="cover">
+<h1>まあまあ最近のCSSあたり</h1>
+<div class="meta">Masataka Yakura / @myakura</div>
+</div>
+
+<section>
+  <h2>CSSの担当範囲</h2>
+</section>
+<section>
+  <ul>
+    <li>ページのレイアウト</li>
+    <li>部品のレイアウト</li>
+    <li>コンテンツの装飾</li>
+    <li>UIまわりの挙動</li>
+  </ul>
+</section>
+
+<section>
+  <h2>CSSの仕様</h2>
+</section>
+<section>
+  <p>ヽ(`Д´)ノ</p>
+</section>
+<section>
+  <ul>
+    <li>フィードバック待ち
+    <li>実装待ち
+    <li>テストスイート待ち
+    <li>細かいところつめてる
+  </ul>
+</section>
+
+<section>
+  <h2>Houdini</h2>
+</section>
+
+<section>
+  <p>CSSは拡張しづらく<br>前進させづらい。
+</section>
+<section>
+  <p>｢マジック｣が多く<br>再定義しづらい。
+</section>
+
+<section>
+  <h2>Properties and Values API</h2>
+</section>
+<section>
+  <p>Variablesの発展形。<br>値も決められる。
+</section>
+
+<section>
+  <h2>Painting API</h2>
+</section>
+<section>
+  <p>Canvasを使って描画処理を定義。
+</section>
+
+<section>
+  <h2>Typed OM</h2>
+</section>
+<section>
+  <p>文字列いじいじだったCSSOM…<br>オブジェクトに！
+</section>
+
+<section>
+  <h2>Worklets</h2>
+</section>
+<section>
+  <p>Houdini APIsは速くないといけない。<br>限定されたWorkerみたいなのを作る。
+</section>
+
+<section>
+  <p>レイアウトやフォント周りも…<br>息の長いプロジェクト。
+</section>
+
+<section>
+  <p>CSSもメンテされるけど<br>Houdiniも今後のCSSのひとつ。
+</section>
+
+</div>
+
+
+<script>
+'use strict'
+
+document.onkeydown = (e) => {
+  if (e.keyCode === 13) {
+    document.querySelector('.wrap').mozRequestFullScreen()
+  }
+}
+</script>
