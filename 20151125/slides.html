@@ -1,6 +1,6 @@
 <!doctype html>
 <meta charset="utf-8">
-<title>最近のCSSまわりとか</title>
+<title>まあまあ最近のCSSあたり</title>
 <style>
 body {
   margin: 0;
@@ -14,11 +14,12 @@ li {
   list-style: none;
 }
 li::before {
-  content: "・ "
+  content: "・ ";
 }
 
 /* スライドのUIまわり */
 .wrap {
+  -webkit-scroll-snap-type: mandatory;
   scroll-snap-type: mandatory;
   width: 100vw;
   height: 100vh;
@@ -33,6 +34,7 @@ li::before {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  -webkit-scroll-snap-coordinate: 0 0;
   scroll-snap-coordinate: 0 0;
 }
 
@@ -51,8 +53,6 @@ h1 {
   font-size: 5vh;
   margin-top: .5em;
 }
-section {
-}
 h2 {
   font-size: 9vh;
   font-weight: 400;
@@ -64,8 +64,8 @@ h2 {
 <div class="wrap">
 
 <div class="cover">
-<h1>まあまあ最近のCSSあたり</h1>
-<div class="meta">Masataka Yakura / @myakura</div>
+  <h1>まあまあ最近のCSSあたり</h1>
+  <div class="meta">Masataka Yakura / @myakura<br>Nov. 25, 2015</div>
 </div>
 
 <section>
@@ -144,13 +144,13 @@ h2 {
 
 </div>
 
-
+<!-- プレゼンターモード
 <script>
 'use strict'
-
 document.onkeydown = (e) => {
   if (e.keyCode === 13) {
     document.querySelector('.wrap').mozRequestFullScreen()
   }
 }
 </script>
+-->
