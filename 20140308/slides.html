@@ -349,7 +349,7 @@ a img {
 
 <style>
 @font-face {
-  font-family: mplus2p; 
+  font-family: mplus2p;
   src: local("M+ 2p regular"), url(../fonts/mplus-2p-regular.ttf);
 }
 @font-face {
@@ -461,7 +461,7 @@ a img {
   code {
     font-family: mplus1c;
   }
-  
+
   pre code {
     color: #eee;
     font-family: mplus1mn;
@@ -959,7 +959,7 @@ a img {
       requestFullscreen.apply(html);
     }
   }
-  
+
   Dz.setProgress = function(aIdx, aStep) {
     var slide = $("section:nth-of-type("+ aIdx +")");
     if (!slide)
@@ -969,14 +969,14 @@ a img {
         stepSize = slideSize / steps;
     this.progressBar.style.width = ((aIdx - 1) * slideSize + aStep * stepSize) + '%';
   }
-  
+
   Dz.postMsg = function(aWin, aMsg) { // [arg0, [arg1...]]
     aMsg = [aMsg];
     for (var i = 2; i < arguments.length; i++)
       aMsg.push(encodeURIComponent(arguments[i]));
     aWin.postMessage(aMsg.join(" "), "*");
   }
-  
+
   function init() {
     Dz.init();
     window.onkeydown = Dz.onkeydown.bind(Dz);
@@ -994,7 +994,7 @@ a img {
     Function.prototype.bind = function (oThis) {
 
       // closest thing possible to the ECMAScript 5 internal IsCallable
-      // function 
+      // function
       if (typeof this !== "function")
       throw new TypeError(
         "Function.prototype.bind - what is trying to be fBound is not callable"
