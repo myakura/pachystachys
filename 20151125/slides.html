@@ -46,7 +46,7 @@ li::before {
 /* スライドのUIまわり */
 .wrap {
   -webkit-scroll-snap-type: mandatory;
-  scroll-snap-type: mandatory;
+  scroll-snap-type: y mandatory;
   width: 100vw;
   height: 100vh;
   overflow: auto;
@@ -61,7 +61,7 @@ li::before {
   flex-direction: column;
   justify-content: center;
   -webkit-scroll-snap-coordinate: 0 0;
-  scroll-snap-coordinate: 0 0;
+  scroll-snap-align: start;
 }
 
 /* スライドのスタイル */
